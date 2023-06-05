@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORM</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" name="id" value="lớp 11" disabled />
+      <input type="text" name="id" value="lớp 11" readonly /> <br>
+      <label for="goitinh">Giới tính</label><br />
+      <input type="radio" name="gioitinh" id="Nam" value="Nữ" /> Nữ <br />
+      <input type="radio" name="gioitinh" id="Nữ" value="Nam" /> Nam <br />
+      <input type="radio" name="gioitinh" id="Khác" value="Khác" /> Khác <br />
+      <!-- checkbox -->
+      
+      <h3>Loài động vật bạn ghét</h3>
+      <input type="checkbox" name="1" id="snack" value="snack"> <label for="snack"> sacnk</label>
+      <input type="checkbox" name="2" id="dog" value="dog"> <label for="dog">dog </label> <br>
+         <!-- select-->
+        <select name="Khoahoc" id="Khoahoc">
+            <option value="Java Script" id="Java Script">Java Script</option>
+            <option value="HTML" id="HTML">HTML</option>
+        </select>
+   
+    <h2>
+      Tạo form mô tả cảm xúc của bạn về <br />
+      tấm ảnh tâm đắc của mình
+    </h2>
+    <form action="">
+      <label for="hovaten">Họ và tên:</label>
+      <input type="text" id="hovaten" /> <br />
+      <label for="email">Email:</label>
+      <input type="text" id="email" /> <br />
+      <label for="chude">Chủ đề:</label>
+      <input type="text" id="chude" /> <br />
+      <span>Img</span> <input type="submit" value="Choose File" /> No file
+      choosen <br />
+      <label for="noidung">Nội dung:</label>
+      <textarea name="noidung" id="noidung" cols="30" rows="10"> </textarea
+      ><br />
+      <input type="submit" value="Gửi" />
+      <!-- cách khác -->
+      <form action="#" method="post">
+        <label for="name">Họ và tên:</label>
+        <input type="text" id="name" name="name" required><br>
+     
+     
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+     
+     
+        <label for="subject">Chủ đề:</label>
+        <input type="text" id="subject" name="subject" required><br>
+     
+     
+        <label for="image">Img:</label>
+        <input type="file" id="image" name="image" required><br>
+     
+     
+        <label for="message">Nội dung:</label>
+        <textarea id="message" name="message" rows="5" required></textarea><br>
+     
+     
+        <input type="submit" value="Gửi">
+    </form>
+   
+  </body>
+</html>
