@@ -19,7 +19,11 @@
       <table>
         <caption
           font-size="20"
-          style="color: blue; background-color: rgb(150, 225, 226)"
+          style="
+            color: blue;
+            background-color: rgb(150, 225, 226);
+            text-align: left;
+          "
         >
           ĐĂNG KÝ HỌC VIÊN
         </caption>
@@ -27,7 +31,9 @@
         <tbody>
           <tr>
             <td><label for="hovaten" class="mauxanh">Họ và tên</label></td>
-            <td colspan="5"><input type="text" id="hocvaten" required /></td>
+            <td colspan="5">
+              <input type="text" id="hocvaten" name="hovaten" required />
+            </td>
           </tr>
           <tr>
             <td><label for="ngaysinh" class="mauxanh">Ngày sinh</label></td>
