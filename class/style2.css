@@ -1,0 +1,63 @@
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: 10px 10px;
+}
+.email {
+  display: inline-block;
+  width: 82%;
+}
+.sns {
+  display: inline-block;
+}
+.navbar {
+  background-color: #dc8e6b;
+}
+body {
+  margin: 0;
+}
+.menu {
+  position: relative;
+  height: 70px;
+  background-color: #fff;
+}
+.logo {
+  width: 150px;
+  margin: 15px;
+  position: absolute;
+  left: 0;
+}
+.list {
+  text-align: right;
+  width: 45%;
+  position: absolute;
+  right: 0;
+}
+.list a {
+  color: #6a2e12;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px;
+}
+.list li {
+  list-style-type: none;
+  float: left;
+}
+
+button {
+  color: white;
+  background-color: #dc8e6b;
+  border-radius: 30px;
+  border: none;
+  padding: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.slide {
+  color: #6a2e12;
+  position: relative;
+  height: 500px;
+  background-size: cover;
+  background-image: url(./Asset/slide-1.jpg);
+}
+.slidecon {position: absolute; left: 50px; top:100px; line-height: 25px; }

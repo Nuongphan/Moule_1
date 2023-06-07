@@ -1,0 +1,38 @@
+
+.logo {
+  display: inline-block;
+  width: 18%;
+  font-weight: 900;
+  font-size: 2em;
+}
+.menu {
+  display: inline-block;
+  width: 40%;
+}
+.feature {
+  display: inline-block;
+  width: 18%;
+}
+.menu li {
+  display: inline-block;
+  padding: 15px;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.button {
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(76, 76, 237);
+  color: white;padding: 10px;
+}
+#banner {
+  text-align: center;
+}
+body {
+  background-image: url("./Asset/cam-nang-day-con-ngoan.jpg");
+  background-size: cover;
+  
+}
