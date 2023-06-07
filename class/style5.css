@@ -1,0 +1,10 @@
+#umbrella {width: 500px;
+height: 350px;
+border: 1px solid grey;
+border-radius: 3px;
+text-align: center;
+margin: auto;}
+body h3, p, button {color: white;}
+.image { height: 300px; background-image: url("../tải\ xuống.jpg"); background-position: center; padding:10px 10}
+button {background-color: red; border: none; padding: 10px; border-radius: 3px;}
+.display {padding: 100px 0;}

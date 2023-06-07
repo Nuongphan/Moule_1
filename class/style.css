@@ -1,0 +1,11 @@
+body { width: 70%;
+    margin: auto;}
+ img {width: 100%;}
+ figure {margin: 0;}
+ h1,p {text-align: justify;}
+ .unline {text-decoration: none; color: blue;}
+ a{color: blue;}
+ .unlin {color: grey; text-decoration: none;}
+ .span {color: grey; text-align: right;}
+ .display {display: inline-block; width: 49%; margin-top: 30px;}
+ .displa {display: inline-block; width: 50%; text-align: right;}
