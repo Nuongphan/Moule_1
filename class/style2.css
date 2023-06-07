@@ -58,6 +58,6 @@ button {
   position: relative;
   height: 500px;
   background-size: cover;
-  background-image: url(./Asset/slide-1.jpg);
+  background-image: url(../Asset/slide-1.jpg);
 }
 .slidecon {position: absolute; left: 50px; top:100px; line-height: 25px; }
