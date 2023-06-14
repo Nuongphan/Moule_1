@@ -1,4 +1,4 @@
-const isVuKOdeptrai = true
+/*const isVuKOdeptrai = true
 console.log('Vu co dep trai khong', isVuKOdeptrai)
 const isDongKOdeptrai = false
 console.log('Dong co dep trai khong', isDongKOdeptrai)
@@ -6,7 +6,7 @@ console.log('Kieudu lieu tren la', typeof isVuKOdeptrai, typeof isDongKOdeptrai)
 //Phân biệt đâu là ture, đâu là false => đi tìm falsy
 /**
  * Những giá trị falsy: 
- * 0; "", null; undefined; NaN; false; -0; On
+ * 0; "", null; undefined; NaN; false; -0; On, 
  */
 /**Toán tử so sánh
  * >; >=; <=, ==, ===
@@ -22,7 +22,10 @@ console.log(5 === '5')*/
  * || (or) => tương đối, một bên đúng thì trả về kết quả cuối cùng là true
  * && (and) => tuyệt đối, cả hai bên phải đúng thì mới trả về kết quả cuối cùng là true
  * !true; !false (not) => trả về giá trị ngược lại true thì trả về false, false thì trả về true 
- */
+ /* CÓ 3 CÁCH KHAI BÁO BIẾN
+ 1. Var toàn cục 
+ 2. Let cục bộ
+ 3. Const cục bộ 
 /*let isHanhIT = false 
 let isHanhE = true 
 console.log('chị Hạnh có thu nhập cao hay không', isHanhIT || isHanhE)
@@ -89,7 +92,7 @@ if (r == 0) {
 }
 else {alert('Day khong phai la nam nhuan')}*/
 // kiểm tra số đó phải số chẵn không nếu là số chẵn thì có chia hết cho 5 và 10 không
-let inputNumber = +prompt('Nhap vao mot so bat ky')
+/*let inputNumber = +prompt('Nhap vao mot so bat ky')
 let r = inputNumber % 2
 let r1 = inputNumber % 5 
 let r2 = inputNumber%10
@@ -98,9 +101,8 @@ if (r == 0) {
     else if (r1 == 0 && r2 != 0) { alert('So chia het cho 5') }
     else if (r1 != 0 || r2 != 0) { alert('Day la so chan') }
 }
-else {alert('Day khong la so chan')}
-
-
+else {alert('Day khong la so chan')}*/
+// CÂU LỆNH IF ELSE
 
 
 
