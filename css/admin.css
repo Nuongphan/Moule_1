@@ -33,17 +33,15 @@
 }
 .modal-edit {
   margin-bottom: auto;
- margin-top: 120px;
- 
-
+  margin-top: 120px;
 }
-.modal-body{
+.modal-body {
   display: flex;
   flex-direction: column;
   row-gap: 15px;
 }
 .modal-title {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   text-align: center;
 }
 
@@ -145,7 +143,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 10% ;
+  padding-left: 10%;
   transition: 0.2s;
   background-color: #fff;
 }
@@ -276,3 +274,24 @@ main {
 }
 /*----------------------------------------------------------------*/
 /* order */
+#table-render-order,
+table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid #000;
+  padding: 10px ;
+}
+#table-render-order tr th {
+  border: 1px solid #000;
+}
+#render-order button{
+width: 70px;
+height: 35px;
+background-color: #0d6efd ;
+color: #fff;
+border: none;
+border-radius: 19px;
+
+}

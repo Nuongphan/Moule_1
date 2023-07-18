@@ -17,19 +17,31 @@ formElement.addEventListener("submit", (e) => {
   e.preventDefault();
   handleSubmitLogin(e);
 });
+////////////////////////////////
+// User đã bị inactive sẽ không đăng nhập được
+
 function handleSubmitLogin() {
-  const displayElement = document.querySelector(".display-userlogin");
-  let displayName = " ";
-  const userForm = getDataForm();
-  const accountDB = getDataLocal();
-  let userLogIn = accountDB.find((user) => {
-    if (user.email == userForm.email && user.password == userForm.password) {
-      return true;
-    }
-  });
-  if (userLogIn) {
+  const dataLocal = JSON.parse(localStorage.getItem("accountDB"));
+  // dataLocal.forEach((element) => {
+    const displayElement = document.querySelector(".display-userlogin");
+    let displayName = " ";
+    const userForm = getDataForm();
+    console.log(userForm);
+    const accountDB = getDataLocal();
+    console.log(userForm.email, userForm.password);
+    // console.log(user.email, user.password);
+    console.log(accountDB);
+    let userLogIn = accountDB.find(
+      (user) =>
+        user.email === userForm.email && user.password == userForm.password
+    );
     console.log(userLogIn);
-    displayName = `<li>
+    if (userLogIn) {
+      if (userLogIn.active === false) {
+        alert("Tài khoản cuả bạn đã bị khóa.");
+        return;
+      } else {
+        displayName = `<li>
           ${userLogIn.firstName} ${userLogIn.lastName}
           </li>
           <li>
@@ -41,14 +53,19 @@ function handleSubmitLogin() {
             ></a>
           </li>
           <li onclick="handleLogout()"> LOGOUT</li>`;
-    delete userLogIn.password;
-    localStorage.setItem("userLogin", JSON.stringify(userLogIn));
-    localStorage.setItem("isLogIn", true);
-    displayElement.innerHTML = displayName;
-    window.location = "/index.html";
-  } else {
-    alert("Email hoặc mật khẩu không đúng");
-   }  
+        delete userLogIn.password;
+        localStorage.setItem("userLogin", JSON.stringify(userLogIn));
+        localStorage.setItem("isLogIn", true);
+        displayElement.innerHTML = displayName;
+        window.location = "/index.html";
+      }
+      console.log(userLogIn);
+    } else {
+      alert("Mật khẩu hặc email không đúng.")
+     
+      return;
+    }
+  // });
 }
 
 function getDataForm() {
@@ -68,13 +85,7 @@ function getDataLocal() {
   const data = JSON.parse(localStorage.getItem("accountDB"));
   return data;
 }
-
 function handleLogout() {
   localStorage.removeItem("userLogin");
   window.location = "/index.html";
 }
-// const logout = document.querySelector('#logout')
-// logout.addEventListener("click", () => {
-//  localStorage.removeItem("userLogin");
-//  window.location = "/index.html";
-// });

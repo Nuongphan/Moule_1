@@ -68,6 +68,7 @@ function getDataForm() {
     .value.toLowerCase()
     .trim();
   const user = {
+    active: true,
     firstName: firstNameValue,
     lastName: lastNameValue,
     email: emailValue,

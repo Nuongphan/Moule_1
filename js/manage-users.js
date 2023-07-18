@@ -34,7 +34,6 @@ function handleChange(email) {
   const data = getData() || [];
   for (let index = 0; index < data.length; index++) {
     const user = data[index];
-
     if (user.email === email) {
       user.active = !user.active;
       break;

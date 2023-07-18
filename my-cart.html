@@ -67,7 +67,7 @@
           <div class="col-6 border-1">PRODUCT</div>
           <div class="col-3 border-1">QUANTITY</div>
           <div class="col-3 border-1">TOTAL</div>
-          <div class="col-12 render-cartttt" >
+          <div class="col-12 render-cartttt">
             <div class="render-carts-item">
               <div class="carts-item-1">
                 <div class="carts-item-1-img">
@@ -82,7 +82,7 @@
                 </div>
               </div>
               <div class="carts-item-2">
-                <input type="number" min="1" value="1" /><br />
+                <input id="cart-quantity-input" type="number" min="1" /><br />
                 <br />
                 <button>REMOVE</button>
               </div>
@@ -90,10 +90,70 @@
             </div>
           </div>
         </div>
-        <p class="total"><span>TOTAL:</span><span class="total-number">31.41</span></p>
-        <button class="payment">PAYMENT</button>
+        <p class="total">
+          <span>TOTAL:</span><span class="total-number">31.41</span>
+        </p>
+        <button onclick="handlePayment()" class="payment">PAYMENT</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="order-history-btn"
+        >
+          ORDER HISTORY
+        </button>
       </div>
     </main>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              ORDER HISTORY
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Order Id</th>
+                  <th scope="col">User Id</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="render-order">
+                <tr>
+                  <th scope="row">1</th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer>
       <div class="container px-4">
         <div class="row gx-5">
@@ -131,9 +191,9 @@
         </div>
       </div>
     </footer>
-    
+
     <script src="./js/check-logedIn.js"></script>
     <script src="./js/db.js"></script>
-   <script src="my-cart.js"></script>
+    <script src="my-cart.js"></script>
   </body>
 </html>

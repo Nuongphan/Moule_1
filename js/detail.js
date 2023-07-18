@@ -2,7 +2,7 @@
 let productsLocal = JSON.parse(localStorage.getItem("products"));
 let productDetaill = JSON.parse(localStorage.getItem("productDetail"));
 let productFinded = productsLocal.find((item) => item.id === productDetaill.id);
-let carts = JSON.parse(localStorage.getItem("cart")) || [];
+// let carts = JSON.parse(localStorage.getItem("cart")) || [];
 //// //////////////////////////////////////////////////////////////////
 // Thêm vào giỏ hàng
 
@@ -33,7 +33,7 @@ function renderProductDetail() {
             <p id="product-price">${productFinded.price}</p>
             <hr />
             <p>Buy 3+ Minimalist Candles, Get 15% off plus Free Shipping*</p>
-            <input type="number" min="1" value="1" />
+            <input disabled type="number" min="1" value="1" />
             <br />
             <button onclick="handleAddToCart(${productFinded.id})">ADD TO CART</button>`;
   smallImgProduct.innerHTML = smallImg;
@@ -42,8 +42,16 @@ function renderProductDetail() {
 }
 renderProductDetail();
 /////////////////////////////////////////////////////////////////////////////
-// Thêm sản phẩm vào giỏ hàng 
+// Thêm sản phẩm vào giỏ hàng
+
 function handleAddToCart(productId) {
+  const userLogin = JSON.parse(localStorage.getItem("userLogin"));
+  if (userLogin.role == "admin") {
+    alert("Bạn không có quyền đặt hàng.");
+    return;
+  }
+  let accountDB = JSON.parse(localStorage.getItem("accountDB")) || [];
+  let account = JSON.parse(localStorage.getItem("userLogin"));
   let productToCart = productsLocal.find((item) => item.id == productId);
   let newProduct = productsLocal.map((item) => {
     if (item.id == productId && item.quantity > 0) {
@@ -55,55 +63,26 @@ function handleAddToCart(productId) {
       return item;
     }
   });
-  let checkIndex = carts.findIndex((item) => item.id == productToCart.id);
-  console.log(checkIndex);
+  let checkIndex = account.cart.findIndex(
+    (item) => item.id == productToCart.id
+  );
   if (checkIndex >= 0) {
-    carts = carts.map((item) => {
-      return {
-        ...item,
-        quantity: item.quantity + 1,
-      };
+    account.cart = account.cart.map((item) => {
+      if (item.id == productToCart.id) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      }
+      return item;
     });
   } else {
-    carts.push({ ...productToCart, quantity: 1 });
+    account.cart.push({ ...productToCart, quantity: 1 });
   }
-
+  let cartAccountDB = accountDB.find((item) => item.email == account.email);
+  cartAccountDB.cart = account.cart;
   localStorage.setItem("products", JSON.stringify(newProduct));
-  localStorage.setItem("cart", JSON.stringify(carts));
+  localStorage.setItem("userLogin", JSON.stringify(account));
+  localStorage.setItem("accountDB", JSON.stringify(accountDB));
 }
 /////////////////////////////////////////////////
-// render Cart
-
-// function handleAddToCart(productId) {
-//   let productToCart = productsLocal.find((item) => item.id == productId);
-//   let newProduct = productsLocal.map((item) => {
-//     if (item.id == productId && item.quantity >= 1) {
-//       return { ...item, quantity: item.quantity-- };
-//     } else if (item.id == productId && item.quantity == 0) {
-//       alert("Hết hàng");
-//       return item;
-//     } else {
-//       return item;
-//     }
-//   });
-//   let checkIndex = carts.findIndex((item) => item.id == productToCart.id);
-//   console.log(checkIndex);
-//   if (checkIndex >= 0) {
-//     carts = carts.map((item) => {
-//       if (item.id == productToCart.id) {
-//         return {
-//           ...item,
-//           quantity: item.quantity + 1,
-//         };
-//       } else {
-//         return item;
-//       }
-//     });
-//   } else {
-//     carts.push({ ...productToCart, quantity: 1 });
-//     renderCart();
-//   }
-
-//   localStorage.setItem("products", JSON.stringify(newProduct));
-//   localStorage.setItem("cart", JSON.stringify(carts));
-// }

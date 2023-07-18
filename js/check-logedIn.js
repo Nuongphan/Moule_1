@@ -53,5 +53,6 @@ function isLogIn() {
 isLogIn();
 function handleLogout() {
   localStorage.removeItem("userLogin");
+  localStorage.removeItem("cart")
   window.location = "/index.html";
 }

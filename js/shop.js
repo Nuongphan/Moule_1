@@ -62,8 +62,8 @@ function renderProducts(data) {
                 <img class="img-2" 
                   src="${product.img[1]}"
                 />
-                <button onclick="renderDetails(${product.id})" class="btn-add-to-cart">
-                  ADD TO CART
+                <button onclick="renderDetails(${product.id})" class="btn-add-to-cart">  
+                LEARN MORE
                 </button></div>
                 <div class="title-candle">
                   <p>${product.type}</p>
@@ -87,7 +87,6 @@ openSearch.addEventListener("click", () => {
 // Tìm kiếm sản phẩm
 function handleSearch() {
   let productsLocal = getData();
-  const searchResult = document.querySelector(".search-result");
   const inputSearch = document.querySelector(".search-image-input");
   const inputSearchValue = inputSearch.value;
   console.log(inputSearchValue);

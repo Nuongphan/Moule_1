@@ -146,14 +146,7 @@ let users = [
     role: "admin",
     active: true,
     password: 11111111,
-  },
-  {
-    firstName: "Johnnathan",
-    lastName: "Nguyễn",
-    email: "lalalalalaNguyen@example.com",
-    role: "user",
-    active: true,
-    password: 11111111,
+    cart: [],
   },
   {
     firstName: "charn",
@@ -162,6 +155,8 @@ let users = [
     role: "user",
     active: true,
     password: 11111111,
+    cart: [],
+
   },
   {
     firstName: "Johnrrrr",
@@ -170,6 +165,7 @@ let users = [
     role: "user",
     active: false,
     password: 11111111,
+    cart: [],
   },
 ];
 
