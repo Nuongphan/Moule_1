@@ -39,7 +39,7 @@ function renderCart() {
 
   document.querySelector(".render-cartttt").innerHTML = productsCart;
   document.querySelector(".total-number").innerHTML = total;
-}
+}               
 renderCart();
 ///////////////////////////////////////////
 // xóa sản phẩm trong giỏ hàng

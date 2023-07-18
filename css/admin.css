@@ -287,11 +287,23 @@ td {
   border: 1px solid #000;
 }
 #render-order button{
-width: 70px;
+width: 65px;
+height: 25px;
+background-color: #0d6efd ;
+color: #fff;
+border: none;
+border-radius: 19px;
+}
+#order-table, thead, tr, th, td{ 
+ border-collapse: collapse;
+  border: 1px solid #000;
+  padding: 10px ;
+}
+.change{
+  width: 70px;
 height: 35px;
 background-color: #0d6efd ;
 color: #fff;
 border: none;
 border-radius: 19px;
-
 }

@@ -282,14 +282,5 @@ main h2 {
 .modal-body {
   margin: 0;
 }
-.detail-btn{
-  border: none;
-  width: 70px;
-  height: 37px;
-  background-color: #232323;
-  color: #fff
-}
-tbody tr:nth-child(odd) {
-  background-color: #ccc;
-}
+
 

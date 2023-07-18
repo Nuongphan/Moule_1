@@ -42,6 +42,7 @@ a {
 }
 
 body {
+  font-family: sans-serif !important;
   color: black;
   background-color: white;
 }
@@ -142,13 +143,13 @@ nav .main-menu li a:hover:before {
   gap: 20px;
   position: fixed;
   z-index: 2000;
- top:90px;
- display: none;
- background-color: white;
-
- 
+  top: 90px;
+  display: none;
+  background-color: white;
 }
-.active{display: block;}
+.active {
+  display: block;
+}
 .search-product input {
   width: 90%;
   height: 60px;
@@ -183,7 +184,7 @@ nav .main-menu li a:hover:before {
   color: rgb(107, 107, 107);
   font-size: small;
   letter-spacing: 2px;
-  z-index: 1001;
+  z-index: 1;
 }
 .title-candle {
   margin: 18px 0;
@@ -244,6 +245,7 @@ footer {
 .img-2 {
   display: none;
 }
+
 @media screen and (max-width: 1024px) {
 }
 @media screen and (max-width: 768px) {
@@ -265,6 +267,7 @@ footer {
     left: 5%;
   }
   .sub-menu {
+   z-index:2;
     display: none;
     position: fixed;
     top: 0;
@@ -272,6 +275,39 @@ footer {
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
+  }
+  .search-product input {
+  width: 90%;
+  height: 60px;
+  border-radius: none;
+  font-size: larger;
+  outline: none;
+  border: 1px solid #ccc;
+  color: #a2a1a1;
+  
+  letter-spacing: 1px;
+}
+
+.search-product button {
+  width: 10%;
+  height: 60px;
+  background-color: black;
+  color: white;
+  border-radius: none;
+  font-size: larger;
+  outline: none;
+  letter-spacing: 3px;
+  border: none;
+}
+  .search-product {
+    width: 90%;
+    display: flex;
+    gap: 20px;
+    position: fixed;
+    z-index: 2000;
+    top: 90px;
+    display: none;
+    background-color: white;
   }
   .active {
     display: block;
@@ -344,6 +380,7 @@ footer {
     display: grid;
     padding-top: 10px;
     margin-left: 40px;
+    margin-right: 0px;
   }
   .logo span:first-child {
     font-weight: bold;
@@ -356,4 +393,18 @@ footer {
     font-size: 15px;
     font-family: Sacramento;
   }
+  .sub-menu-item {
+    position: absolute;
+    animation: slide linear 0.35s;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #333;
+    color: rgb(222, 222, 222);
+    padding-top: 3rem;
+    font-size: larger;
+  }
+
 }
+

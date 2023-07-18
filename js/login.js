@@ -58,8 +58,7 @@ function handleSubmitLogin() {
         localStorage.setItem("isLogIn", true);
         displayElement.innerHTML = displayName;
         window.location = "/index.html";
-      }
-      console.log(userLogIn);
+      }                      
     } else {
       alert("Mật khẩu hặc email không đúng.")
      
@@ -85,7 +84,4 @@ function getDataLocal() {
   const data = JSON.parse(localStorage.getItem("accountDB"));
   return data;
 }
-function handleLogout() {
-  localStorage.removeItem("userLogin");
-  window.location = "/index.html";
-}
+

@@ -30,7 +30,7 @@ function renderProductDetail() {
                </h4>`;
   });
   productDetail += ` <p id="product-name">${productFinded.name}</p>
-            <p id="product-price">${productFinded.price}</p>
+            <p id="product-price">$ ${(productFinded.price).toFixed(1)}</p>
             <hr />
             <p>Buy 3+ Minimalist Candles, Get 15% off plus Free Shipping*</p>
             <input disabled type="number" min="1" value="1" />
@@ -46,6 +46,9 @@ renderProductDetail();
 
 function handleAddToCart(productId) {
   const userLogin = JSON.parse(localStorage.getItem("userLogin"));
+  if (!userLogin) {
+    window.location = "./login.html";
+  }
   if (userLogin.role == "admin") {
     alert("Bạn không có quyền đặt hàng.");
     return;
@@ -78,6 +81,7 @@ function handleAddToCart(productId) {
     });
   } else {
     account.cart.push({ ...productToCart, quantity: 1 });
+    alert("Thêm sản phẩm thành công")
   }
   let cartAccountDB = accountDB.find((item) => item.email == account.email);
   cartAccountDB.cart = account.cart;

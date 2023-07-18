@@ -18,9 +18,9 @@ header {
   padding-right: 5rem;
   height: 90px;
   background-color: white;
-  
+  border-bottom: 1px solid #ccc;
 }
-.container{
+.container {
   --bs-gutter-x: none;
 }
 header .nav-screen-md {
@@ -55,7 +55,6 @@ body {
   font-size: larger;
   display: grid;
   padding-top: 10px;
-  
 }
 .logo span:first-child {
   letter-spacing: 2px;
@@ -68,14 +67,19 @@ body {
   font-weight: lighter;
   font-size: 25px;
   font-family: Sacramento;
- 
 }
-.inner-header nav{margin-left: 0;}
-.main-menu{margin-right: 0;}
+.inner-header nav {
+  margin-left: 0;
+}
+.main-menu {
+  margin-right: 0;
+}
 nav .main-menu li a {
   position: relative;
 }
-
+main{
+  margin-bottom: 200px;
+}
 nav .main-menu li a:before {
   position: absolute;
   top: 57px;
@@ -133,7 +137,7 @@ nav .main-menu li a:hover:before {
 }
 footer {
   position: absolute;
-  top: 85%;
+  top: 95%;
   left: 0%;
   width: 100%;
   margin: 7rem 0 4rem 0;
@@ -146,6 +150,7 @@ footer {
   color: black;
   font-size: 97%;
 }
+
 @media screen and (max-width: 1024px) {
 }
 
@@ -157,7 +162,7 @@ footer {
     width: 100%;
     transition: all 0.9s ease-in-out;
     z-index: 2;
-      border-bottom: 1px solid rgb(197, 197, 197)
+    border-bottom: 1px solid rgb(197, 197, 197);
   }
   header .nav-screen-md {
     display: block;
@@ -208,6 +213,7 @@ footer {
     gap: 45px;
     padding-top: 20px;
     display: none;
+
   }
   .main-menu li:nth-child(odd) {
     display: none;
@@ -238,7 +244,6 @@ footer {
   }
 }
 @media screen and (max-width: 576px) {
-  
   #form-login {
     position: absolute;
     display: grid;
@@ -247,14 +252,14 @@ footer {
     left: 14%;
     row-gap: 15px;
   }
-   header {
+  header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     transition: all 0.9s ease-in-out;
     z-index: 2;
-      border-bottom: 1px solid rgb(197, 197, 197);
-      padding: 0;
+    border-bottom: 1px solid rgb(197, 197, 197);
+    padding: 0;
   }
 }
