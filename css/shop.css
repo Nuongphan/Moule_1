@@ -18,6 +18,7 @@ header {
   padding-right: 5rem;
   height: 90px;
   background-color: white;
+  border-bottom: 1px solid #ccc;
 }
 .inner-header nav {
   margin-left: 0;

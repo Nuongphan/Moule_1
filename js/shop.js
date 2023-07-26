@@ -13,15 +13,10 @@ open.addEventListener("click", () => {
 close.addEventListener("click", () => {
   el.style.display = "none";
 });
-// function handleToDetail(id) {
-//   window.location.href = "detail.html?id=" + +id;
-// }
-////////////////////////////////////////////////////////////////
 function getData() {
   const data = JSON.parse(localStorage.getItem("products"));
   return data || [];
 }
-
 function renderProducts(data) {
   if (data) {
     let renderElement = document.querySelector(".render-products");
@@ -77,7 +72,7 @@ function renderProducts(data) {
   }
 }
 renderProducts();
-////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Thanh tìm kiếm
 const search = document.querySelector(".search-product");
 const openSearch = document.querySelector(".search");
@@ -93,19 +88,17 @@ function handleSearch() {
   const productsNeed = productsLocal.filter((item) =>
     item.name.toLowerCase().includes(inputSearchValue.toLowerCase())
   );
-  
+
   if (inputSearchValue === "") {
     renderProducts(productsLocal);
   } else {
     renderProducts(productsNeed);
   }
 }
-//////////////////////////////////////////////////////////////
-// Lấy được id từng sản phẩm 1 
+// Lấy được id từng sản phẩm 1
 const renderDetails = (id) => {
   const data = getData();
-  const productDetail = data.find((item) => item.id === +id);
-console.log(id);
+  const productDetail = data.find((item) => item.id == Number(id));
   localStorage.setItem("productDetail", JSON.stringify(productDetail));
   window.location.href = "./detail.html?id=" + id;
 };

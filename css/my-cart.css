@@ -98,6 +98,7 @@ nav .main-menu li a:before {
 nav .main-menu li a:hover:before {
   width: 100%;
 }
+.btn-cancel{border: none; width: 80px; height: 30px;}
 footer {
   width: 100%;
   margin: 7rem 0 4rem 0;

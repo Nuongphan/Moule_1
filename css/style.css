@@ -23,9 +23,9 @@ header {
 header .nav-screen-md {
   display: none;
 }
-.search {
-  display: none !important;
-}
+/* .search {
+  display: none ;
+} */
 ul {
   list-style-type: none;
 }
@@ -289,6 +289,16 @@ footer {
   letter-spacing: 3px;
   border: none;
 }
+@keyframes slide {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 /* responsive */
 
@@ -305,16 +315,7 @@ footer {
   } */
 }
 
-@keyframes slide {
-  from {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
+
 @media screen and (max-width: 768px) {
   #banner {
     background-image: url(../IMG/summer_hp_1600x.webp);

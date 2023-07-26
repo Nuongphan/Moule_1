@@ -49,16 +49,15 @@ function handleSubmit() {
 function getDataForm() {
   const firstNameValue = document
     .getElementById("first-name")
-    .value.toLowerCase()
+    .value
     .trim();
   const lastNameValue = document
     .getElementById("last-name")
-    .value.toLowerCase()
+    .value
     .trim();
-  const emailValue = document
+  const email = document
     .getElementById("email")
-    .value.toLowerCase()
-    .trim();
+  const emailValue= email.value.toLowerCase().trim();
   const passwordValue = document
     .getElementById("password")
     .value.toLowerCase()
@@ -109,4 +108,4 @@ function renderError(error) {
   passwordError.innerHTML = error.passwordMessage;
   repeatPasswordError.innerHTML = error.repeatPasswordMessage;
 }
-//check role 
+

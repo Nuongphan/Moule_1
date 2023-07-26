@@ -1,9 +1,9 @@
-// render sản phẩm
+
 let products = [
   {
     img: [
-      "https://brooklyncandlestudio.com/cdn/shop/products/sevilla-escapist-candle-brooklyn-candle-studio-773431_800x.jpg?v=1628267128",
-      "https://brooklyncandlestudio.com/cdn/shop/products/sevilla-escapist-candle-brooklyn-candle-studio-470164_400x.jpg?v=1629424970",
+      "https://brooklyncandlestudio.com/cdn/shop/products/sunday-morning-candle-brooklyn-candle-studio-180182_800x.jpg?v=1572403841",
+      "https://brooklyncandlestudio.com/cdn/shop/products/sunday-morning-minimalist-candle-brooklyn-candle-studio-334796_800x.jpg?v=1632960193",
     ],
     id: 1,
     type: "SCENT FAMILY: CITRUS / SMOKY",
@@ -147,6 +147,7 @@ let users = [
     active: true,
     password: 11111111,
     cart: [],
+    id: 1,
   },
   {
     firstName: "charn",
@@ -156,7 +157,7 @@ let users = [
     active: true,
     password: 11111111,
     cart: [],
-
+    id: 2,
   },
   {
     firstName: "Johnrrrr",
@@ -166,6 +167,7 @@ let users = [
     active: false,
     password: 11111111,
     cart: [],
+    id: 3,
   },
 ];
 

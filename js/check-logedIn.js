@@ -35,6 +35,9 @@ function isLogIn() {
           <li onclick="handleLogout()"> LOGOUT</li>`;
   } else if (!data) {
     displayName = ` 
+    <li>
+            <i class="fa-solid fa-magnifying-glass search"></i>
+          </li>
           <li>
             <a href="./login.html"><i class="fa-solid fa-user"></i></a>
           </li>`;

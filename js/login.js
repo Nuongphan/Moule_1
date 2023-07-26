@@ -23,25 +23,24 @@ formElement.addEventListener("submit", (e) => {
 function handleSubmitLogin() {
   const dataLocal = JSON.parse(localStorage.getItem("accountDB"));
   // dataLocal.forEach((element) => {
-    const displayElement = document.querySelector(".display-userlogin");
-    let displayName = " ";
-    const userForm = getDataForm();
-    console.log(userForm);
-    const accountDB = getDataLocal();
-    console.log(userForm.email, userForm.password);
-    // console.log(user.email, user.password);
-    console.log(accountDB);
-    let userLogIn = accountDB.find(
-      (user) =>
-        user.email === userForm.email && user.password == userForm.password
-    );
-    console.log(userLogIn);
-    if (userLogIn) {
-      if (userLogIn.active === false) {
-        alert("Tài khoản cuả bạn đã bị khóa.");
-        return;
-      } else {
-        displayName = `<li>
+  const displayElement = document.querySelector(".display-userlogin");
+  let displayName = " ";
+  const userForm = getDataForm();
+  const accountDB = getDataLocal();
+  let userLogIn = accountDB.find(
+    (user) =>
+      user.email === userForm.email && user.password == userForm.password
+  );
+  if (!userLogIn) {
+    alert("Mật khẩu hặc email không đúng.");
+    return;
+  }
+
+  if (userLogIn.active === false) {
+    alert("Tài khoản cuả bạn đã bị khóa.");
+    // return;
+  } else {
+    displayName = `<li>
           ${userLogIn.firstName} ${userLogIn.lastName}
           </li>
           <li>
@@ -53,17 +52,13 @@ function handleSubmitLogin() {
             ></a>
           </li>
           <li onclick="handleLogout()"> LOGOUT</li>`;
-        delete userLogIn.password;
-        localStorage.setItem("userLogin", JSON.stringify(userLogIn));
-        localStorage.setItem("isLogIn", true);
-        displayElement.innerHTML = displayName;
-        window.location = "/index.html";
-      }                      
-    } else {
-      alert("Mật khẩu hặc email không đúng.")
-     
-      return;
-    }
+    delete userLogIn.password;
+    localStorage.setItem("userLogin", JSON.stringify(userLogIn));
+    localStorage.setItem("isLogIn", true);
+    displayElement.innerHTML = displayName;
+    window.location = "/index.html";
+  }
+
   // });
 }
 
@@ -84,4 +79,3 @@ function getDataLocal() {
   const data = JSON.parse(localStorage.getItem("accountDB"));
   return data;
 }
-

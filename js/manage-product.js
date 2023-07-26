@@ -106,6 +106,7 @@ function addToStore() {
   console.log(product);
   products.push(product);
   console.log(products);
+  document.querySelector(".modalAdd").style.display = "none";
   localStorage.setItem("products", JSON.stringify(products));
   renderProduct();
 } /////////////////////////////////////////////////////////////////////////////////
@@ -115,10 +116,13 @@ function handleSearch() {
   const inputSearch = document.querySelector(".input-search");
   const inputSearchValue = inputSearch.value;
   console.log(inputSearchValue);
-  const productsNeed = productsLocal.filter((item) =>
-    item.name.toLowerCase().includes(inputSearchValue.toLowerCase())
+  let productsNeed = productsLocal.filter(
+    (item) =>
+      item.name.toLowerCase().includes(inputSearchValue.toLowerCase()) ||
+      item.id == inputSearchValue ||
+      item.type.toLowerCase().includes(inputSearchValue.toLowerCase()) ||
+      item.quantity == inputSearchValue
   );
-  console.log(productsNeed);
   if (inputSearchValue === "") {
     renderProduct(productsLocal);
   } else {
@@ -145,15 +149,11 @@ function handleEdit(id) {
 }
 function handleUpdate() {
   const data = getData();
-  let index = data.findIndex((item) => {
-    return item.id == idUpdate;
-  });
   const idProduct = document.getElementById("id-product");
   const nameEdit = document.getElementById("name-product");
   const priceEdit = document.getElementById("price-product");
   const typeEdit = document.getElementById("type-product");
   const quantityEdit = document.getElementById("quantity-product");
-
   console.log(nameEdit.value);
   console.log(priceEdit.value);
   console.log(typeEdit.value);
@@ -180,4 +180,3 @@ function handleUpdate() {
   localStorage.setItem("products", JSON.stringify(newData));
   renderProduct();
 }
-

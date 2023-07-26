@@ -1,7 +1,7 @@
-let account = JSON.parse(localStorage.getItem("userLogin")) || [];
+let account = JSON.parse(localStorage.getItem("userLogin"));
 let carts = account.cart;
 function renderCart() {
-  let account = JSON.parse(localStorage.getItem("userLogin")) || [];
+  let account = JSON.parse(localStorage.getItem("userLogin"));
   let carts = account.cart;
   let productsCart = "";
   let total = "";
@@ -18,7 +18,7 @@ function renderCart() {
                 </div>
                 <div class="carts-item-1-content">
                   <p>${product.name}</p>
-                  <p>  $${Number(product.price).toLocaleString()}</p>
+                  <p> $${Number(product.price).toLocaleString()}</p>
                 </div>
               </div>
               <div class="carts-item-2">
@@ -34,34 +34,40 @@ function renderCart() {
                 product.price
               ).toLocaleString()}</p></div>
             </div>`;
-    total = `<span>$ ${totalResult.toLocaleString()}</span>`;
   });
+  total = `<span>$ ${totalResult.toLocaleString()}</span>`;
 
   document.querySelector(".render-cartttt").innerHTML = productsCart;
   document.querySelector(".total-number").innerHTML = total;
-}               
+}
 renderCart();
 ///////////////////////////////////////////
 // xóa sản phẩm trong giỏ hàng
 function handleRemove(productId) {
-  let account = JSON.parse(localStorage.getItem("userLogin")) || [];
+  let account = JSON.parse(localStorage.getItem("userLogin"));
   let cart = account.cart;
   let newCarts = cart.filter((item) => {
     return item.id != productId;
   });
   account.cart = newCarts;
-  console.log(newCarts);
   localStorage.setItem("userLogin", JSON.stringify(account));
   renderCart();
 }
-/////////////////////////////////////////
 // điều chỉnh số lượng
 function handleChange(productId, value) {
   let accountDB = JSON.parse(localStorage.getItem("accountDB"));
-  let account = JSON.parse(localStorage.getItem("userLogin")) || [];
+  let account = JSON.parse(localStorage.getItem("userLogin"));
+  let productsLocal = JSON.parse(localStorage.getItem("products"));
   let carts = account.cart;
   let productChange = carts.find((item) => item.id == productId);
   productChange.quantity = Number(value);
+  productsLocal.find((item) => {
+    if (item.id == productChange.id) {
+      if (item.quantity <= productChange.quantity) {
+        productChange.quantity = item.quantity;
+      }
+    }
+  });
   carts.quantity = productChange.quantity;
   let accountChange = accountDB.find((item) => item.email == account.email);
   accountChange.cart = carts;
@@ -69,16 +75,25 @@ function handleChange(productId, value) {
   localStorage.setItem("accountDB", JSON.stringify(accountDB));
   renderCart();
 }
-////////////////////////////////////////////
 // Thanh toán
 function handlePayment() {
+  let products = JSON.parse(localStorage.getItem("products"));
   let accountDB = JSON.parse(localStorage.getItem("accountDB"));
-  let account = JSON.parse(localStorage.getItem("userLogin")) || [];
+  let account = JSON.parse(localStorage.getItem("userLogin"));
   let orderLocal = JSON.parse(localStorage.getItem("orders")) || [];
   let carts = account.cart;
   if (carts.length === 0) {
     alert("Không có sản phẩm nào trong giỏ hàng");
   } else if (carts.length > 0) {
+    products.forEach((itemA) => {
+      let productPayment = carts.find((itemB) => itemA.id == itemB.id);
+      if (productPayment) {
+        itemA.quantity -= productPayment.quantity;
+      }
+      console.log(products);
+    });
+    localStorage.setItem("products", JSON.stringify(products));
+
     let totalResult = carts.reduce((total, item) => {
       return Number(total + item.price * item.quantity);
     }, 0);
@@ -106,8 +121,6 @@ function handlePayment() {
 let orderLocal = JSON.parse(localStorage.getItem("orders")) || [];
 const newArr = orderLocal.filter((el) => el.idUser === account.email);
 function renderOrderHistory() {
-  let orderLocal = JSON.parse(localStorage.getItem("orders")) || [];
-  console.log(orderLocal);
   const renderElement = document.getElementById("render-order");
   let orderContent = "";
   newArr.forEach((item, index) => {
@@ -117,9 +130,13 @@ function renderOrderHistory() {
       <td>${item.idUser}</td>
       <td>${item.date}</td>
       <td>$ ${Number(item.total).toFixed(1)}</td>
-      <td>${item.status ? "Processing" : "Completed"}</td>
+      <td class="status">Processing</td>
+      <td><button class="btn-cancel"  onclick="handleCancel('${
+        item.idOrder
+      }')">Cancel</button></td>
     </tr>`;
   });
   renderElement.innerHTML = orderContent;
 }
 renderOrderHistory();
+
